@@ -4,10 +4,8 @@ import axios from "axios";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-console.log(route);
 
 const pays = route.params.pays;
-console.log(pays);
 let data = ref("");
 
 onMounted(async () => {
