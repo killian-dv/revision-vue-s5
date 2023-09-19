@@ -14,9 +14,10 @@ console.log(data);
 
 <template>
   <ul v-if="data">
-    <li v-for="pays in data">{{ pays.flag }} {{ pays.name.common }}</li>
+    <li v-for="pays in data">
+      <RouterLink :to="`/pays/${pays.name.common}`">
+        {{ pays.flag }} {{ pays.name.common }}
+      </RouterLink>
+    </li>
   </ul>
-  <pre>
-    {{ data }}
-  </pre>
 </template>
