@@ -1,0 +1,5 @@
+<script></script>
+
+<template>
+  <h1>My first component</h1>
+</template>
