@@ -1,37 +1,23 @@
 <script setup>
-import FirstComponent from "./components/FirstComponent.vue";
-import { computed } from "vue";
+import { ref } from "vue";
 
-const note1 = 18;
-const note2 = 16;
-const note3 = 13;
+const awesome = ref(true);
 
-const table = ["note1", "note2", "note3"];
-
-const moyenne = computed(() => {
-  return (note1 + note2 + note3) / 3;
-});
+const notes = [12, 8, 10, 14, 6, 9, 7, 13, 11, 15];
 </script>
 
 <template>
-  <h1>Exo 1</h1>
-  <ul>
-    <li>Note 1 : {{ note1 }}</li>
-    <li>Note 2 : {{ note2 }}</li>
-    <li>Note 3 : {{ note3 }}</li>
-  </ul>
-  <p>Moyenne : {{ moyenne }}</p>
-  <ul v-for="item in table">
-    <li>{{ item }}</li>
-  </ul>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga dolor, cum
-    nobis veritatis numquam ad laborum eum architecto, nulla rerum autem commodi
-    harum, unde consequuntur ipsum perspiciatis. Nesciunt ducimus necessitatibus
-    ea. Eius eum obcaecati eligendi eos aut atque provident quaerat quos
-    pariatur? Tempore dolores saepe, eos minus deserunt ut nesciunt?
-  </p>
-  <FirstComponent />
+  <button @click="awesome = !awesome">Basculer</button>
+
+  <h1 v-if="awesome">Vue est magnifique!</h1>
+  <h1 v-else>Oh non 😢</h1>
+  <div v-for="note in notes">
+    <p v-if="note > 10" class="green">{{ note }} supérieur à 10</p>
+    <p v-else-if="note <= 10 && note >= 8" class="red">
+      {{ note }} entre 8 et 10
+    </p>
+    <p v-else class="red">{{ note }} inférieur 10</p>
+  </div>
 </template>
 
 <style scoped></style>
