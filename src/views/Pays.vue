@@ -8,7 +8,7 @@ let listeDepart = ref("");
 let search = ref("");
 
 onMounted(async () => {
-  const response = await axios.get("https://restcountries.com/v3.1/all");
+  const response = await axios.get("../../php/countries.json");
   data.value = response.data;
   listeDepart.value = data.value;
 });
